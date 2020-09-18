@@ -30,7 +30,7 @@ func fundBucket(w http.ResponseWriter, r *http.Request) {
 	} else {
 		// return invoice
 		h := sha256.Sum256(makeMetadata(bucket))
-		label := "lndb." + bucket + "." + cuid.Slug()
+		label := "microdb." + bucket + "." + cuid.Slug()
 
 		res, err := spark.Call("invoicewithdescriptionhash",
 			amount,

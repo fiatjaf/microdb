@@ -30,7 +30,7 @@ func sparkoListener() {
 		case "invoice_payment":
 			data := gjson.Parse(ev.Data())
 			label := data.Get("invoice_payment.label").String()
-			if !strings.HasPrefix(label, "lndb.") {
+			if !strings.HasPrefix(label, "microdb.") {
 				continue
 			}
 			preimage := data.Get("invoice_payment.preimage").String()

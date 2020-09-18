@@ -1,3 +1,3 @@
 *.gen.go
 *.env
-lndb
+microdb

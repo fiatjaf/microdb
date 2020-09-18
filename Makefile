@@ -1,10 +1,10 @@
-lndb: $(shell find . -name "*.go") assets.gen.go
-	go build -ldflags="-s -w" -o ./lndb
+microdb: $(shell find . -name "*.go") assets.gen.go
+	go build -ldflags="-s -w" -o ./microdb
 
 assets.gen.go: $(shell find public -type f)
 	broccoli -src=public/ -o assets
 
-deploy: lndb
-	ssh root@nusakan-58 'systemctl stop lndb'
-	scp lndb nusakan-58:lndb/lndb
-	ssh root@nusakan-58 'systemctl start lndb'
+deploy: microdb
+	ssh root@nusakan-58 'systemctl stop microdb'
+	scp microdb nusakan-58:microdb/microdb
+	ssh root@nusakan-58 'systemctl start microdb'
